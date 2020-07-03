@@ -1,0 +1,48 @@
+<h4>Contacto</h4>
+<hr>
+
+<form [formGroup]="forma" (ngSubmit)="guardar()">
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Nombre</label>
+        <div class="col-8">
+            <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido">
+            <small *ngIf="nombreNoValido" class="text-danger">El nombre debe llevar minimo 4 letras</small>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Correo</label>
+        <div class="col-8">
+            <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo" [class.is-invalid]="correoNoValido">
+            <small *ngIf="correoNoValido" class="text-danger">Ingrese un correo valido</small>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Telefono</label>
+        <div class="col-8">
+            <input class="form-control" type="text" formControlName="telefono" [class.is-invalid]="telefonoNoValido">
+            <small *ngIf="telefonoNoValido" class="text-danger">El telefono es obligatorio</small>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Mensaje</label>
+        <div class="col-8">
+            <textarea class="form-control" name="mensaje" cols="30" rows="5" formControlName="mensaje" [class.is-invalid]="mensajeNoValido"></textarea>
+            <small *ngIf="mensajeNoValido" class="text-danger">Tu mensaje debe contener minimo 20 caracteres, maximo 200</small>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <button type="submit" class="btn btn-dark btn-block">
+                Guardar
+            </button>
+        </div>
+    </div>
+
+</form>
+
